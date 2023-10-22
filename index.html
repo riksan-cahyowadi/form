@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="judul">Halaman Form</h1>
+        <img src="itera.png" alt="logo ITERA" width="75px" height="75px">
+    </header>
+
+    <aside>
+        <h3>Sidebar</h3>
+        <p>Silahkan pilih ingin ke Halaman mana?</p>
+        <nav class="navigasi">
+            <ul>
+                <button><a href="https://riksan-cahyowadi.github.io/">Home</a></button>
+                <button><a href="https://riksan-cahyowadi.github.io/table">Table</a></button>
+            </ul>
+        </nav>
+    </aside>
+    
+    <table>
+        <form
+         method="GET" onsubmit="tampilkanData(event);">
+        <tr>
+            <td><label for="nama">Nama</label></td>
+            <td>:</td>
+            <td><input type="text" name="nama" id="nama" required></td>
+        </tr>
+        <tr>
+            <td><label for="nim">NIM</label></td>
+            <td>:</td>
+            <td><input type="text" name="nim" id="nim" required></td>
+        </tr>
+        <tr>
+            <td><label for="prodi">Program Studi</label></td>
+            <td>:</td>
+            <td><input type="text" name="prodi" id="prodi" required></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email</label></td>
+            <td>:</td>
+            <td><input type="email" name="email" id="email" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>:</td>
+            <td><input type="password" name="password" id="password" required></td>
+        </tr>
+        <tr>
+            <td><label for="jenis_kelamin">Jenis Kelamin</label></td>
+            <td>:</td>
+            <td>
+                <label><input type="radio" name="jenis_kelamin" id="jenis_kelamin1" value="Pria" required>Pria</label>
+                <label><input type="radio" name="jenis_kelamin" id="jenis_kelamin2" value="Wanita" required>Wanita</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="tanggal_lahir">Tanggal Lahir</label></td>
+            <td>:</td>
+            <td><input type="date" name="tanggal_lahir" id="tanggal_lahir" required></td>
+        </tr>
+        <tr>
+            <td><label for="alamat">Alamat</label></td>
+            <td>:</td>
+            <td><textarea name="alamat" id="alamat" cols="20" rows="6"></textarea></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type="submit" value="SUBMIT" class="submit"></td>
+        </tr>
+        </form>
+    </table>
+
+    <!--Untuk memindahkan data ke tabel-->
+    <script>
+        function tampilkanData() {
+            event.preventDefault();
+    
+            // Membaca nilai dari elemen-elemen HTML
+            var nama = document.getElementById("nama").value;
+            var nim = document.getElementById("nim").value;
+            var prodi = document.getElementById("prodi").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var jenis_kelamin = document.querySelector('input[name="jenis_kelamin"]:checked').value;
+            var tanggal_lahir = document.getElementById("tanggal_lahir").value;
+            var alamat = document.getElementById("alamat").value;
+    
+            // Membuat objek untuk menyimpan data
+            var data = {
+                nama: nama,
+                nim: nim,
+                prodi: prodi,
+                email: email,
+                password: password,
+                jenis_kelamin: jenis_kelamin,
+                tanggal_lahir: tanggal_lahir,
+                alamat: alamat
+            };
+    
+            // Membuat parameter URL dari objek data
+            var params = new URLSearchParams(data);
+    
+            // Redirect ke halaman tabel dengan parameter URL
+            window.location.href = "https://dimassaputra059.github.io/tabel?" + params.toString();
+        }
+    </script>
+
+    <footer>
+        <p>Riksan Cahyowadi</p>
+        <a href="riksan.121140106@student.itera.ac.id">riksan.121140106@student.itera.ac.id</a>
+    </footer>
+</body>
+</html>
